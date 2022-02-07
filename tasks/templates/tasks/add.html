@@ -4,8 +4,8 @@
     <h1>Add Task</h1>
     <form action="{% url 'tasks:add' %}" method="post">
         {% csrf_token %}
-        <input type="text" name="task">
+        {{ form }} <!-- generates <input type="text" name="task"> from views.py -->
         <input type="submit">
     </form>
-    <a href="{% url 'tasks:index' %}">View Tasks</a>
+    <a href="{% url 'tasks:index' %}">View Tasks</a> <!-- it's necessary to add tasks because it can take a different path with the same name ex. newyear index-->
 {% endblock %}
